@@ -1,8 +1,12 @@
+#This should be obvious. please keep your credentials safe!
 .env
 
-datafiles/*
-
-#ignore everything in videos with a file extension (i.e videos), keep warning file
+#ignore everything in videos and datafiles with a file extension (i.e videos), keep warning file
 videos/*.*
+datafiles/*.*
+
 videos/*/
+datafiles/*/
+
 videos/!*
+datafiles/!*
