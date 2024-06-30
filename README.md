@@ -42,5 +42,5 @@ Upon running for the first time, simply follow the instructions given to you by 
 - Fill in the description
 - For the about url, you can fill in any valid web address. i'd suggest making it the link to this repo or a registered domain of your own.
 ### Step 3: Click "create app". DO NOT CLOSE THIS PAGE UNTIL YOU HAVE THE SECRET SETUP
-- Copy the random **bolded** text located directly underneath where it says: "**personal use script**", and save it. only enter it when the script asks for the Client ID
+- Copy the random **bolded** text located directly underneath where it says: "**personal use script**", and save it. Only enter it when the script asks for the Client ID
 - Copy the secret, and enter it when the script asks for the secret
