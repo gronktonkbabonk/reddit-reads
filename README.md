@@ -42,5 +42,5 @@ Upon running for the first time, simply follow the instructions given to you by 
 - Fill in the description
 - For the about url, you can fill in any valid web address. i'd suggest making it the link to this repo or a registered domain of your own.
 ### Step 3: Click "create app". DO NOT CLOSE THIS PAGE UNTIL YOU HAVE THE SECRET SETUP
-- copy the random **bolded** text located directly underneath the name of the bot, and save enter it when the script asks for the Client ID
+- copy the random **bolded** text located directly underneath where it says: "**personal use script**", and save enter it when the script asks for the Client ID
 - copy the secret, and enter it when the script asks for the secret
