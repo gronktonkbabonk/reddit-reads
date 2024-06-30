@@ -3,5 +3,6 @@
 datafiles/*
 
 #ignore everything in videos with a file extension (i.e videos), keep warning file
-videos/*
-!videos/*/
+videos/*.*
+videos/*/
+videos/!*
