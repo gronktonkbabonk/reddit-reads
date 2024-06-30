@@ -1,5 +1,5 @@
 # Reddit Reads
-## A highly customizable way to create *those* videos (you know the ones i'm talking about). Pick and choose features that you want for your video. the subreddit, sort by, and more (you can see the full list when you run it.)
+### A highly customizable way to create *those* videos (you know the ones i'm talking about). Pick and choose features that you want for your video. the subreddit, sort by, and more (you can see the full list when you run it.)
 
 DISCLAIMER: i don't post this kinda content myself, i just picked this up as a fun project idea
 
