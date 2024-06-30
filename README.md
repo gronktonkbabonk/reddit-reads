@@ -8,21 +8,21 @@ DISCLAIMER: i don't post this kinda content myself, i just picked this up as a f
 # Requirements
 
 ### Need manual install:
- [Python version 3.4+](https://www.python.org/downloads/)
+- [Python version 3.4+](https://www.python.org/downloads/)
 
 ### These will all be installed in the initial running of the project:
-The python libraries [python-dotenv](https://pypi.org/project/python-dotenv/) and [moviepy](https://pypi.org/project/moviepy/)
+- The python libraries [python-dotenv](https://pypi.org/project/python-dotenv/) and [moviepy](https://pypi.org/project/moviepy/)
 
-[Imagemagick](https://imagemagick.org/)
+- [Imagemagick](https://imagemagick.org/)
 
 ## Needed to get the reddit api working:
-Reddit username and password
+- Reddit username and password
 
-Reddit client ID
+- Reddit client ID
 
-Reddit bot secret
+- Reddit bot secret
 
-The last two can be obtained by following the [tutorial below](#how-to-create-a-reddit-bot-and-get-the-needed-info).
+- The last two can be obtained by following the [tutorial below](#how-to-create-a-reddit-bot-and-get-the-needed-info).
 
 ## Installation and usage
 
