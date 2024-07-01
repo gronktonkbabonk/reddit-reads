@@ -11,7 +11,7 @@ DISCLAIMER: i don't post this kinda content myself, i just picked this up as a f
 - [Python version 3.4+](https://www.python.org/downloads/)
 
 ### These will all be installed in the initial running of the project:
-- The python libraries [python-dotenv](https://pypi.org/project/python-dotenv/) and [moviepy](https://pypi.org/project/moviepy/)
+- The python libraries [python-dotenv](https://pypi.org/project/python-dotenv/), [moviepy](https://pypi.org/project/moviepy/) and [gTTS](https://pypi.org/project/gTTS/)
 
 - [Imagemagick](https://imagemagick.org/)
 

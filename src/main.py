@@ -39,7 +39,7 @@ def apiReq(link, pretty=False):
 hot_posts = apiReq("r/askreddit/hot")
 
 # i hate to interrupt the variable flow but this is necessary
-with open("../datafiles/oldposts.txt", "a+") as f:
+with open("../.datafiles/oldposts.txt", "a+") as f:
 	f.seek(0)
 	post = hot_posts["data"]["children"][0]["data"]
 	
@@ -71,31 +71,54 @@ def decodeChars(text):
         print(f"Error decoding text: {e}")
         return text
 
-with open("../datafiles/comments.txt", "w", encoding="utf-8") as f:
+with open("../.datafiles/comments.txt", "w+", encoding="utf-8") as f:
 	for comment_thread in comments:	
 		for comment in comment_thread["data"]["children"]:
 			try:
 				body = comment["data"]["body"]
 				decodedBody = decodeChars(body)
-				if (decodedBody != "[deleted]"):
+				if (decodedBody != "[deleted]" + decodedBody != "[removed]"):
 					f.write(f"{json.dumps(decodedBody, indent=3, ensure_ascii=False)}\n\n")
 			except:
 				pass
+	f.seek(0)
 
 
-with open("../datafiles/comments.json", "w") as f:
+with open("../.datafiles/comments.json", "w") as f:
     json.dump(comments, f, ensure_ascii=False, indent=4)
 
 #############################
 ##### END PREPROCESSING #####
 ### START POST PROCESSING ###
 #############################
+from gtts import gTTS
 
-with open("../datafiles/comments.txt", "r+") as f:
+#this is dumb but it's not worth the if statements
+try:
+	os.remove("output.mp3")
+	os.remove("temp.mp3")
+except:
+	pass
+
+def voice(audio):
+	try:
+		gTTS(audio).save("temp.mp3")
+		with open("temp.mp3","rb") as temp:
+			with open("output.mp3", "ab") as output:
+				output.write(temp.read())
+		os.remove("temp.mp3")
+	except KeyboardInterrupt:
+		exit(0)
+
+
+with open("../.datafiles/comments.txt", "r+") as f:
 	commentCount = 0
 	commentLensFull = 0
 	longestComment = 0
 	shortestComment = 99999
+	commentsOverNum = 0
+	commentsUnder = 0
+	commentsOver = []
 	for line in f:
 		if len(line) > 1: commentLensFull += (len(line)) 
 		else: continue
@@ -105,5 +128,23 @@ with open("../datafiles/comments.txt", "r+") as f:
 		commentCount += 1
 
 	commentAvg = round(commentLensFull/commentCount)
-	print(f"[ Total Comment Count: {commentCount} ]\n[ Average Length Of Comment: {commentAvg} ]\n[ Shortest Comment Length: {shortestComment} ]\n[ Longest Comment Length: {longestComment} ]")
+
+	f.seek(0)
+	for line in f:
+		if len(line) > commentAvg: commentsOverNum += 1
+		if len(line) < commentAvg: commentsUnder += 1
+
+	print(f"[ Total Comment Count: {commentCount} ]\n[ Average Length Of Comment: {commentAvg} ]\n[ Shortest Comment Length: {shortestComment} ]\n[ Longest Comment Length: {longestComment} ]\n[ Comments over average length: {commentsOverNum} ]\n[ Comments under average length: {commentsUnder} ]")	
 	print("[",avg,"]\n")
+
+	i = 0
+	f.seek(0)
+	for line in f:
+		print(f"Voicing large comments: {i}/{commentsOverNum}", end="\r")
+		if len(line) > commentAvg:
+			voice(line)
+			print(f"Voicing large comments: {i+1}/{commentsOverNum}", end="\r")
+			i += 1
+		if(i == commentsOverNum):
+			print("\nAll large comments voiced.")
+			break
